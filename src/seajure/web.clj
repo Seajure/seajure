@@ -26,7 +26,7 @@
                (set-attr :href url))
     [:dd] (content description)))
 
-(deftemplate index "index.html" [members projects]
+(deftemplate index "index-template.html" [members projects]
   [:ul.members :li] (member-links members)
   [:dl.projects] (project-links projects))
 
