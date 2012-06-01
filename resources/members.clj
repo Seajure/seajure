@@ -9,4 +9,5 @@
  {:name "Justin Lilly" :url "http://justinlilly.com"}
  {:name "James Cooper" :url "http://bitmechanic.com"}
  {:name "Mark Engelberg"}
- {:name "Isaac Hodes" :url "http://copperthoughts.com"}]
+ {:name "Isaac Hodes" :url "http://copperthoughts.com"}
+ {:name "Jeffrey Hulten" :url "http://automatedlabs.com"}]
