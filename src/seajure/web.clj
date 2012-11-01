@@ -19,23 +19,13 @@
     [:a] (do-> (content name)
                (set-attr :href url))))
 
-(defn project-links [projects]
-  (clone-for [[anchor {:keys [name url description]}] projects]
-    [:dt :a] (do-> (content name)
-               (set-attr :name anchor)
-               (set-attr :href url))
-    [:dd] (content description)))
-
-(deftemplate index "index.html" [members projects]
-  [:ul.members :li] (member-links members)
-  [:dl.projects] (project-links projects))
+(deftemplate index "index.html" [members]
+  [:ul.members :li] (member-links members))
 
 (defn -main
   ([out]
      (.mkdirs (file out))
-     (let [members (read-resource "members.clj")
-           projects (read-resource "projects.clj")
-           lines (index members projects)]
+     (let [lines (index (read-resource "members.clj"))]
        (doseq [f assets] (copy (get-resource-stream f) (file out f)))
        (spit (file out "index.html") (apply str lines))))
   ([] (-main "public")))
